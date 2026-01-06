@@ -9,18 +9,16 @@ public class GridSum {
     int gridLength = 20;
 
     int[][] grid = new int[gridLength][gridWidth];
-    int maxSum = 0;
+    int maxSum = Integer.MIN_VALUE;
     int sum;
 
 
 
-    // try-with-resources: Scanner will be closed automatically
+    // reading file into 2d-array
     try (Scanner myReader = new Scanner(gridFile)) {
       for(int y=0; y<gridLength; y++){
-        for(int x=0; x<gridWidth; x++){
-          if(myReader.hasNextInt()){
+        for(int x=0; x<gridWidth; x++){ 
             grid[y][x] =myReader.nextInt();
-          }
         }
       }
     } catch (FileNotFoundException e) {
@@ -48,8 +46,8 @@ public class GridSum {
           if(sum >maxSum) maxSum = sum;
         }
         //next 4 numbers horizontaly left down diagonal
-        if(x>=3 && y>=3){
-          sum = grid[y][x] + grid[y-1][x-1] + grid[y-2][x-2] + grid[y-3][x-3];
+        if(x>=3 && y<=gridLength-4){
+          sum = grid[y][x] + grid[y+1][x-1] + grid[y+2][x-2] + grid[y+3][x-3];
           if(sum >maxSum) maxSum = sum;
         }
       }

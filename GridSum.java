@@ -9,15 +9,15 @@ public class GridSum {
     int gridLength = 20;
     int span = 4;
 
-    int[][] grid = new int[gridLength][gridWidth];
-    int maxSum = Integer.MIN_VALUE;
-    int sum;
+    long[][] grid = new long[gridLength][gridWidth];
+    long maxSum = Integer.MIN_VALUE;
+    long sum;
 
     // reading file into 2d-array
     try (Scanner myReader = new Scanner(gridFile)) {
       for(int y=0; y<gridLength; y++){
         for(int x=0; x<gridWidth; x++){ 
-            grid[y][x] =myReader.nextInt();
+            grid[y][x] =myReader.nextLong();
         }
       }
     } catch (FileNotFoundException e) {

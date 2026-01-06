@@ -36,9 +36,9 @@ public class GridSum {
                 continue;
             }
             
-            sum = 0;
+            sum = 1;
             for (int i = 0; i < span; i++) {
-                sum += grid[y + dir[1] * i][x + dir[0] * i];
+                sum *= grid[y + dir[1] * i][x + dir[0] * i];
             }
             maxSum = Math.max(maxSum, sum);
         }
